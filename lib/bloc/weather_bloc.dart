@@ -1,9 +1,6 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:meta/meta.dart';
 import 'package:weather/weather.dart';
 import 'package:weather_app_bloc/data/my_data.dart';
 
@@ -20,6 +17,7 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
             event.position.latitude, event.position.longitude);
         emit(WeatherSuccess(weather));
       } catch (e) {
+        // print(e);
         emit(WeatherFailure());
       }
     });
